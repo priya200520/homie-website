@@ -1,27 +1,79 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        /* Navbar */
+        nav { background-color: #333; color: white; padding: 10px; display: flex; justify-content: space-between; align-items: center; }
+        nav .logo { font-size: 24px; font-weight: bold; }
+        nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        nav ul li { margin: 0 15px; }
+        nav ul li a { color: white; text-decoration: none; }
+        nav ul li a:hover { text-decoration: underline; }
+        /* Contact Section */
+        .contact { padding: 20px; background: white; margin: 20px; border: 1px solid #ddd; }
         form { max-width: 400px; }
-        input, textarea, button { display: block; margin: 10px 0; padding: 10px; width: 100%; }
-        button { background: #4CAF50; color: white; border: none; cursor: pointer; }
+        input, textarea, button { display: block; margin: 10px 0; padding: 10px; width: 100%; box-sizing: border-box; }
+        button { background-color: #28a745; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #218838; }
+        /* Footer */
+        footer { background-color: #333; color: white; text-align: center; padding: 20px; }
+        footer .footer-content { display: flex; justify-content: space-around; flex-wrap: wrap; }
+        footer a { color: white; text-decoration: none; margin: 0 10px; }
+        footer a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
-    <h1>हमसे संपर्क करें</h1>
-    <form>
-        <input type="text" placeholder="नाम" required>
-        <input type="email" placeholder="ईमेल" required>
-        <textarea placeholder="मैसेज" rows="5" required></textarea>
-        <button type="submit">भेजें</button>
-    </form>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">Trousers Store</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="product-listing.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="checkout.html">Checkout</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="account.html">My Account</a></li>
+        </ul>
+    </nav>
+
+    <h1>Contact Us</h1>
+    <div class="contact">
+        <form>
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Message" rows="5" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h4>Contact</h4>
+                <p>Email: info@trousersstore.com</p>
+                <p>Phone: +91-1234567890</p>
+            </div>
+            <div>
+                <h4>Social</h4>
+                <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
+            </div>
+            <div>
+                <h4>Policies</h4>
+                <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Return Policy</a>
+            </div>
+        </div>
+        <p>&copy; 2023 Trousers Store. All rights reserved.</p>
+    </footer>
+
     <script>
         document.querySelector('form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('मैसेज भेज दिया गया!');
+            alert('Message sent!');
         });
     </script>
 </body>
