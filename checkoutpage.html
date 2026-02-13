@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        form { max-width: 400px; }
+        input, button { display: block; margin: 10px 0; padding: 10px; width: 100%; }
+        button { background: #4CAF50; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>चेकआउट</h1>
+    <div>
+        <h3>आपके आइटम्स:</h3>
+        <p>प्रोडक्ट 1 - ₹500</p>
+        <p>टोटल: ₹500</p>
+    </div>
+    <form>
+        <input type="text" placeholder="नाम" required>
+        <input type="email" placeholder="ईमेल" required>
+        <input type="text" placeholder="एड्रेस" required>
+        <input type="text" placeholder="कार्ड नंबर" required>
+        <button type="submit">पेमेंट करें</button>
+    </form>
+    <script>
+        // सिम्पल JS फॉर्म सबमिशन
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('पेमेंट प्रोसेस हो रहा है!');
+        });
+    </script>
+</body>
+</html>

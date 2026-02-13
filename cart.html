@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Trousers Store - Cart</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
+        nav { background-color: #333; color: white; padding: 10px; display: flex; justify-content: space-between; align-items: center; }
+        nav .logo { font-size: 24px; font-weight: bold; }
+        nav ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        nav ul li { margin: 0 15px; }
+        nav ul li a { color: white; text-decoration: none; }
+        nav ul li a:hover { text-decoration: underline; }
+        .cart { padding: 20px; }
+        .cart-item { background: white; border: 1px solid #ddd; padding: 10px; margin: 10px 0; display: flex; justify-content: space-between; align-items: center; }
+        .cart-item button { background-color: #dc3545; color: white; border: none; padding: 5px 10px; cursor: pointer; }
+        .cart-item button:hover { background-color: #c82333; }
+        .total { font-size: 20px; font-weight: bold; text-align: center; margin: 20px 0; }
+        footer { background-color: #333; color: white; text-align: center; padding: 20px; }
+        footer .footer-content { display: flex; justify-content: space-around; flex-wrap: wrap; }
+        footer a { color: white; text-decoration: none; margin: 0 10px; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Trousers Store</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="shop.html">Shop</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="cart">
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <div class="total" id="total">Total: ₹0</div>
+        <button onclick="checkout()" style="display: block; margin: 20px auto; background-color: #28a745; color: white; border: none; padding: 15px 30px; font-size: 18px; cursor: pointer;">Checkout</button>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h4>Contact</h4>
+                <p>Email: info@trousersstore.com</p>
+                <p>Phone: +91-1234567890</p>
+            </div>
+            <div>
+                <h4>Social</h4>
+                <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a>
+            </div>
+            <div>
+                <h4>Policies</h4>
+                <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">Return Policy</a>
+            </div>
+        </div>
+        <p>&copy; 2023 Trousers Store. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cartItems = document.getElementById('cart-items');
+            let total = 0;
+            cartItems.innerHTML = '';
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p>Your cart is empty.</p>';
+            } else {
+                cart.forEach((item, index) => {
+                    total += item.price;
+                    cartItems.innerHTML += `
+                        <div class="cart-item">
+                            <span>${item.name} - ₹${item.price}</span>
+                            <button onclick="removeFromCart(${index})">Remove</button>
+                        </div>
+                    `;
+                });
+            }
+            document.getElementById('total').innerText = 'Total: ₹' + total;
+        }
+
+        function removeFromCart(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+        }
+
+        function checkout() {
+            alert('Checkout simulation! Real mein payment gateway add karo.');
+        }
+
+        window.onload = loadCart;
+    </script>
+</body>
+</html>
